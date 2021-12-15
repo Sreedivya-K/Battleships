@@ -106,7 +106,6 @@ def checkShip(grid, ship):
         a1=ship[i]
         if grid[a1[0]][a1[1]]==1:
             p=p+1
-            
     if p==3:
         return True
     else:
@@ -119,7 +118,16 @@ Parameters: 2D list of ints ; int
 Returns: 2D list of ints
 '''
 def addShips(grid, numShips):
-    return
+    c=0
+    while c<numShips:
+        ship=createShip()
+        g=checkShip(grid,ship)
+        if g==True:
+            for i in range(3):
+                a1=ship[i]
+                grid[a1[0]][a1[1]]=2
+            c=c+1
+    return grid
 
 
 '''
@@ -301,4 +309,4 @@ if __name__ == "__main__":
 
     ## Finally, run the simulation to test it manually ##
     # runSimulation(500, 500)
-    test.testCheckShip()
+    test.testAddShips()
