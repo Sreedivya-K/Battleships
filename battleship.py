@@ -372,7 +372,12 @@ def runGameTurn(data, row, col):
         return None
     else:
         updateBoard(data,a,row,col,"user")
-        return
+    
+    b=getComputerGuess(data["user"])  
+    updateBoard(data,data["user"],b[0],b[1],"user")
+
+    return
+    
 
 
 '''
@@ -381,7 +386,18 @@ Parameters: 2D list of ints
 Returns: list of ints
 '''
 def getComputerGuess(board):
-    return
+    a=[]
+    c=2
+    while c > 1 :
+        row = random.randint(0,9)
+        col = random.randint(0,9)
+        if board[row][col]==SHIP_CLICKED or board[row][col]==EMPTY_CLICKED:
+            c = 2
+        else:
+            a=[row,col]
+            c=1
+
+    return a
 
 
 '''
@@ -460,4 +476,4 @@ if __name__ == "__main__":
 
     ## Finally, run the simulation to test it manually ##
     runSimulation(500, 500)
-    test.testUpdateBoard()
+    test.testGetComputerGuess()
