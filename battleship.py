@@ -136,7 +136,7 @@ def addShips(grid, numShips):
         ship=createShip()
         g=checkShip(grid,ship)
         if g==True:
-            for i in range(3):
+            for i in range(len(ship)):
                 a1=ship[i]
                 grid[a1[0]][a1[1]]=2
             c=c+1
@@ -375,4 +375,4 @@ if __name__ == "__main__":
 
     ## Finally, run the simulation to test it manually ##
     #runSimulation(500, 500)
-    test.testIsHorizontal()
+    test.testCheckShip()
