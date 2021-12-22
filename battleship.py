@@ -102,7 +102,7 @@ Returns: bool
 '''
 def checkShip(grid, ship):
     p=0
-    for i in range(3):
+    for i in range(len(ship)):
         a1=ship[i]
         if grid[a1[0]][a1[1]]==1:
             p=p+1
